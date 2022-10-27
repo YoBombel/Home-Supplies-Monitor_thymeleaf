@@ -18,7 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
-import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 @Component
@@ -29,7 +28,6 @@ public class FileParser {
 
     public List<Item> parseItemListFromFile(File file) throws FileNotFoundException {
 
-        Pattern pattern = Pattern.compile(",");
         Scanner scanner = new Scanner(file);
 
         String fileToCategory = file.getName().toUpperCase(Locale.ROOT);
@@ -37,15 +35,21 @@ public class FileParser {
 
         List<Item> itemList = new ArrayList<>();
 
-        while (scanner.useDelimiter(pattern).hasNext()) {
-            Item item = new Item();
-            item.setName(scanner.next().trim());
-            item.setAmount(Amount.NONE);
-            item.setCategory(category);
-            item.setFundamental(false);
-            item.setPreferred(false);
-            itemList.add(item);
+        while (scanner.hasNextLine()) {
+
+            String name = scanner.nextLine();
+
+            if(!name.isBlank()) {
+                Item item = new Item();
+                item.setName(name.trim());
+                item.setAmount(Amount.NONE);
+                item.setCategory(category);
+                item.setFundamental(false);
+                item.setPreferred(false);
+                itemList.add(item);
+            }
         }
+
         return itemList;
     }
 
