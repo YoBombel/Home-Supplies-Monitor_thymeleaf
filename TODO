@@ -4,3 +4,8 @@ IDEAS:
 TODO:
 - ItemNotFound Exception
 - edit element
+
+
+ItemRepo ->
+            User:   - shoppingList
+                    - itemList

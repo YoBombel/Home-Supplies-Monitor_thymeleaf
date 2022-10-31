@@ -15,12 +15,14 @@ import java.util.UUID;
 @Table(name = "item")
 public class Item {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private Long id;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @Column(name = "id")
+//    private Long id;
 
-    @Column(name = "name")
+    @Id
+    @NonNull
+    @Column(name = "name", nullable = false)
     private String name;
 
     @Enumerated(EnumType.STRING)
