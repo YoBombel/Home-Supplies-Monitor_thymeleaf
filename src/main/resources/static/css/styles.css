@@ -1,0 +1,9 @@
+#main-container{
+    max-width: 800px;
+}
+
+.btn-checkbox label input {
+    visibility: hidden;
+}
+
+input:checked+.btn-outline-primary{background-color: #0dcaf0;}
