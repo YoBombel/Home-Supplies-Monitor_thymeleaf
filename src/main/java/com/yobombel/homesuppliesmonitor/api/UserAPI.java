@@ -1,7 +1,7 @@
-package com.yobombel.homesuppliesmonitor.Controller;
+package com.yobombel.homesuppliesmonitor.api;
 
-import com.yobombel.homesuppliesmonitor.Model.User;
-import com.yobombel.homesuppliesmonitor.Service.UserService;
+import com.yobombel.homesuppliesmonitor.model.User;
+import com.yobombel.homesuppliesmonitor.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

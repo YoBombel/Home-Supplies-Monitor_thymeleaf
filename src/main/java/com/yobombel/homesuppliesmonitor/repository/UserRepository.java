@@ -1,6 +1,6 @@
-package com.yobombel.homesuppliesmonitor.Repository;
+package com.yobombel.homesuppliesmonitor.repository;
 
-import com.yobombel.homesuppliesmonitor.Model.User;
+import com.yobombel.homesuppliesmonitor.model.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

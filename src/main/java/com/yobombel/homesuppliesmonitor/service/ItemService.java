@@ -1,7 +1,7 @@
-package com.yobombel.homesuppliesmonitor.Service;
+package com.yobombel.homesuppliesmonitor.service;
 
-import com.yobombel.homesuppliesmonitor.Model.Item;
-import com.yobombel.homesuppliesmonitor.Repository.ItemRepository;
+import com.yobombel.homesuppliesmonitor.model.Item;
+import com.yobombel.homesuppliesmonitor.repository.ItemRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

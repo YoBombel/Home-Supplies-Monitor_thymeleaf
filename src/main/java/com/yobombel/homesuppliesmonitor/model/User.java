@@ -1,4 +1,4 @@
-package com.yobombel.homesuppliesmonitor.Model;
+package com.yobombel.homesuppliesmonitor.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

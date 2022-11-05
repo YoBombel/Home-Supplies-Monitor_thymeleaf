@@ -1,6 +1,6 @@
-package com.yobombel.homesuppliesmonitor.Repository;
+package com.yobombel.homesuppliesmonitor.repository;
 
-import com.yobombel.homesuppliesmonitor.Model.Item;
+import com.yobombel.homesuppliesmonitor.model.Item;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

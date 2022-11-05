@@ -1,9 +1,9 @@
 package com.yobombel.homesuppliesmonitor.util;
 
-import com.yobombel.homesuppliesmonitor.Model.Enums.Amount;
-import com.yobombel.homesuppliesmonitor.Model.Enums.Category;
-import com.yobombel.homesuppliesmonitor.Model.Item;
-import com.yobombel.homesuppliesmonitor.Service.ItemService;
+import com.yobombel.homesuppliesmonitor.model.enums.Amount;
+import com.yobombel.homesuppliesmonitor.model.enums.Category;
+import com.yobombel.homesuppliesmonitor.model.Item;
+import com.yobombel.homesuppliesmonitor.service.ItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

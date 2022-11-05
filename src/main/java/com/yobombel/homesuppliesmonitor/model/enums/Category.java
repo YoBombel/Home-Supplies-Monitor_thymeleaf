@@ -1,4 +1,4 @@
-package com.yobombel.homesuppliesmonitor.Model.Enums;
+package com.yobombel.homesuppliesmonitor.model.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

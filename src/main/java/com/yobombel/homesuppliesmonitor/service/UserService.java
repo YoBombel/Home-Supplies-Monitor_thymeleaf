@@ -1,7 +1,7 @@
-package com.yobombel.homesuppliesmonitor.Service;
+package com.yobombel.homesuppliesmonitor.service;
 
-import com.yobombel.homesuppliesmonitor.Model.User;
-import com.yobombel.homesuppliesmonitor.Repository.UserRepository;
+import com.yobombel.homesuppliesmonitor.model.User;
+import com.yobombel.homesuppliesmonitor.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

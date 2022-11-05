@@ -1,12 +1,10 @@
-package com.yobombel.homesuppliesmonitor.Model;
+package com.yobombel.homesuppliesmonitor.model;
 
-import com.yobombel.homesuppliesmonitor.Model.Enums.Amount;
-import com.yobombel.homesuppliesmonitor.Model.Enums.Category;
+import com.yobombel.homesuppliesmonitor.model.enums.Amount;
+import com.yobombel.homesuppliesmonitor.model.enums.Category;
 import lombok.*;
-import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
-import java.util.UUID;
 
 @Data
 @Entity
