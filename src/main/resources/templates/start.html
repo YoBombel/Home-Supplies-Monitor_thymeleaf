@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>JavaQuiz</title>
+    <title>Home Supplies Monitor</title>
     <link th:href="@{/css/bootstrap.css}" rel="stylesheet"/>
 </head>
 <body>
@@ -12,7 +12,17 @@
         <h1>Welcome to Home Supplies Monitor.</h1>
     </div>
 
+
+    <form th:action="@{/newUser}" method="post">
+        <H4>Create new user</H4>
+        <input type="text" th:value="${name}" name="name">
+        <button class="btn btn-success" type="submit">Add new user</button>
+    </form>
+    <div th:each="user : ${users}">
+        <div th:text="${user.name}"></div>
+    </div>
     <a th:href="@{/allitems}">All items</a>
+
 
 </div>
 </body>
