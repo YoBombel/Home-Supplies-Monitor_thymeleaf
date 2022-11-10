@@ -13,11 +13,6 @@ import javax.persistence.*;
 @Table(name = "item")
 public class Item {
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
-//    @Column(name = "id")
-//    private Long id;
-
     @Id
     @NonNull
     @Column(name = "name", nullable = false)
@@ -32,9 +27,9 @@ public class Item {
     private Amount amount;
 
     @Column(name = "fundamental")
-    private boolean isFundamental;
+    private boolean fundamental;
 
     @Column(name = "preferred")
-    private boolean isPreferred;
+    private boolean preferred;
 
 }

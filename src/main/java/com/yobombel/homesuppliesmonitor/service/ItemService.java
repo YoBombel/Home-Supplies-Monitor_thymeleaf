@@ -1,6 +1,7 @@
 package com.yobombel.homesuppliesmonitor.service;
 
 import com.yobombel.homesuppliesmonitor.model.Item;
+import com.yobombel.homesuppliesmonitor.model.enums.Category;
 import com.yobombel.homesuppliesmonitor.repository.ItemRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -14,24 +15,26 @@ public class ItemService {
 
     private final ItemRepository itemRepository;
 
+    public List<Item> findAll(){
+        return itemRepository.findAll();
+    }
+
+    public List<Item> findByCategory(String category){
+        return itemRepository.findByCategory(Category.valueOf(category.toUpperCase()));
+    }
+
     public void saveItem(Item item){
         itemRepository.save(item);
     }
 
-    public void saveItemList(List<Item> itemList){
-        itemRepository.saveAll(itemList);
+    public Optional<Item> findByName(String name){
+        return itemRepository.findByNameIgnoreCase(name);
     }
 
-    public Optional<Item> findById(Long id){
-        return itemRepository.findById(id);
+    public void deleteByName(String name){
+        itemRepository.deleteItemByNameIgnoreCase(name);
     }
 
-    public void deleteById(Long id){
-        itemRepository.deleteById(id);
-    }
 
-    public List<Item> findAll(){
-        return itemRepository.findAll();
-    }
 
 }

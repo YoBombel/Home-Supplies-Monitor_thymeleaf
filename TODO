@@ -1,11 +1,5 @@
-IDEAS:
-- notes to shopping list and items;
-
-TODO:
-- ItemNotFound Exception
-- edit element
-
-
-ItemRepo ->
-            User:   - shoppingList
-                    - itemList
+CRUD - Update robić?
+Delete nie działa.
+Responsy błędów:
+    GetByName response
+    GetByCategory response

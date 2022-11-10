@@ -53,18 +53,17 @@ public class FileParser {
         return itemList;
     }
 
-
-    @PostConstruct
-    public void fillDB() throws FileNotFoundException {
-
-        List<File> fileList = listPathsToFiles();
-
-        for (File file : fileList
-        ) {
-            itemService.saveItemList(
-                    parseItemListFromFile(file));
-        }
-    }
+//    @PostConstruct
+//    public void fillDB() throws FileNotFoundException {
+//
+//        List<File> fileList = listPathsToFiles();
+//
+//        for (File file : fileList
+//        ) {
+//            itemService.saveItemList(
+//                    parseItemListFromFile(file));
+//        }
+//    }
 
     private List<File> listPathsToFiles() {
 
