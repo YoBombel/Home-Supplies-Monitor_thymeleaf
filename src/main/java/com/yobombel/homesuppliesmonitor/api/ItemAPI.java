@@ -2,11 +2,18 @@ package com.yobombel.homesuppliesmonitor.api;
 
 import com.yobombel.homesuppliesmonitor.model.Item;
 import com.yobombel.homesuppliesmonitor.service.ItemService;
+import com.yobombel.homesuppliesmonitor.util.CategoryModelAssembler;
 import lombok.RequiredArgsConstructor;
+import org.springframework.hateoas.CollectionModel;
+import org.springframework.hateoas.EntityModel;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
 @RequiredArgsConstructor
@@ -14,10 +21,16 @@ import java.util.Optional;
 public class ItemAPI {
 
     private final ItemService itemService;
+    private final CategoryModelAssembler assembler;
 
     @GetMapping("")
-    public List<Item> getAllItems() {
-        return itemService.findAll();
+    public CollectionModel<EntityModel<Item>> all() {
+
+        List<EntityModel<Item>> supplies = itemService.findAll().stream()
+                .map(assembler::toModel)
+                .toList();
+
+        return CollectionModel.of(supplies, linkTo(methodOn(ItemAPI.class).all()).withSelfRel());
     }
 
     @GetMapping("{name}")
