@@ -4,6 +4,7 @@ import com.yobombel.homesuppliesmonitor.model.Item;
 import com.yobombel.homesuppliesmonitor.model.enums.Category;
 import com.yobombel.homesuppliesmonitor.repository.ItemRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,7 +17,9 @@ public class ItemService {
     private final ItemRepository itemRepository;
 
     public List<Item> findAll(){
-        return itemRepository.findAll();
+        return itemRepository.findAll
+                (Sort.by(Sort.Order.asc("category"))
+                        .and(Sort.by(Sort.Order.asc("name"))));
     }
 
     public List<Item> findByCategory(String category){
