@@ -1,5 +1,22 @@
+MVP:
+    Thymeleaf apka do dokumentowania domowych zapasów z dynamicznym generowaniem listy
+    zakupów.
+
+BACK:
+    Generate shopping list
+    Shopping list CRUD
+
+FRONT:
+    Shopping list UI
+    Item polish
+
 CRUD - Update robić?
-Delete nie działa.
 Responsy błędów:
     GetByName response
     GetByCategory response
+testy
+logi
+Nazwę item zmienić na supplies?
+Sort rest links
+Remove REST
+Message for database connection error.

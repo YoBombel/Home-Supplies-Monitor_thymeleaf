@@ -26,10 +26,4 @@ public class Item {
     @Column(name = "amount")
     private Amount amount;
 
-    @Column(name = "fundamental")
-    private boolean fundamental;
-
-    @Column(name = "preferred")
-    private boolean preferred;
-
 }

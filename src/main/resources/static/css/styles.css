@@ -1,3 +1,11 @@
+body{
+    max-width: 800px;
+}
+
+h1{
+    margin: 0;
+}
+
 #main-container{
     max-width: 800px;
 }
@@ -7,3 +15,28 @@
 }
 
 input:checked+.btn-outline-primary{background-color: #0dcaf0;}
+
+.text-width{
+    width: 45%
+}
+
+.form-select .form-select-custom{
+
+}
+
+label {
+    display: none;
+}
+
+#btn-back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+}
+
+#btn-back-to-top:active,
+#btn-back-to-top:hover,
+#btn-back-to-top:focus-visible{
+    background-color: transparent;
+}

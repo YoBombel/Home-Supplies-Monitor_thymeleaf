@@ -7,12 +7,10 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum Category {
 
-    VEGGIE("Warzywa"),
-    FRUIT("Owoce"),
-    MEAT("Mięso"),
-    CLEANING("Sprzątanie"),
-    HYGIENE("Higiena");
+    FOOD("Food"),
+    CLEANING("Cleaning"),
+    MISC("Miscellaneous");
 
-    private String value;
+    private final String value;
 
 }

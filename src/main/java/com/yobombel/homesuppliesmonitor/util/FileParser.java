@@ -44,8 +44,6 @@ public class FileParser {
                 item.setName(name.trim());
                 item.setAmount(Amount.NONE);
                 item.setCategory(category);
-                item.setFundamental(false);
-                item.setPreferred(false);
                 itemList.add(item);
             }
         }
@@ -53,17 +51,17 @@ public class FileParser {
         return itemList;
     }
 
-//    @PostConstruct
-//    public void fillDB() throws FileNotFoundException {
-//
-//        List<File> fileList = listPathsToFiles();
-//
-//        for (File file : fileList
-//        ) {
-//            itemService.saveItemList(
-//                    parseItemListFromFile(file));
-//        }
-//    }
+    @PostConstruct
+    public void fillDB() throws FileNotFoundException {
+
+        List<File> fileList = listPathsToFiles();
+
+        for (File file : fileList
+        ) {
+            parseItemListFromFile(file)
+                    .forEach(itemService::saveItem);
+        }
+    }
 
     private List<File> listPathsToFiles() {
 

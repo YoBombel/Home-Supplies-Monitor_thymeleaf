@@ -7,10 +7,10 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum Amount {
 
-    ENOUGH("Dość"),
-    MED("Średnio"),
-    LOW("Mało"),
-    NONE("Zero");
+    NONE("None"),
+    LOW("Low"),
+    ENOUGH("Enough"),
+    MAX("Max");
 
     private String value;
 }
