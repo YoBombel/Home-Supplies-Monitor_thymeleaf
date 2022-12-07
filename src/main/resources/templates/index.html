@@ -52,8 +52,12 @@
         <div class="col-md-4">
             <h3 class="text-center">Food</h3>
             <div th:each="item : ${allItemList}" th:if="${(item.getCategory().getValue() == 'Food')}"
-                 class="border border-info rounded p-2 mb-2">
-                <span th:text="${item.name}"></span>
+                 class="border border-info rounded p-2 mb-2 text-truncate">
+                <span th:text="${item.name}"
+                      data-bs-toggle="tooltip" data-bs-placement="top"
+                      data-bs-custom-class="custom-tooltip"
+                      th:data-bs-title="${item.name}">
+                </span>
                 <div class="d-flex flex-row justify-content-between">
                     <form th:object="${item}" th:action="updateAmount" method="post"
                           th:name="${item.name}" class="">
@@ -114,8 +118,12 @@
         <div class="col-md-4">
             <h3 class="text-center">Misc</h3>
             <div th:each="item : ${allItemList}" th:if="${(item.getCategory().getValue() == 'Miscellaneous')}"
-                 class="border border-info rounded p-2 mb-2">
-                <span th:text="${item.name}"></span>
+                 class="border border-info rounded p-2 mb-2 text-truncate">
+                <span th:text="${item.name}"
+                      data-bs-toggle="tooltip" data-bs-placement="top"
+                      data-bs-custom-class="custom-tooltip"
+                      th:data-bs-title="${item.name}">
+                </span>
                 <div class="d-flex flex-row justify-content-between">
                     <form th:object="${item}" th:action="updateAmount" method="post"
                           th:name="${item.name}" class="">
