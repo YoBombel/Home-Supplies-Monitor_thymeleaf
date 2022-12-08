@@ -1,5 +1,7 @@
 package com.yobombel.homesuppliesmonitor.service;
 
+import com.yobombel.homesuppliesmonitor.config.LimitConfig;
+import com.yobombel.homesuppliesmonitor.exception.ItemLimitException;
 import com.yobombel.homesuppliesmonitor.model.Item;
 import com.yobombel.homesuppliesmonitor.model.enums.Amount;
 import com.yobombel.homesuppliesmonitor.model.enums.Category;
@@ -29,6 +31,7 @@ public class ItemService {
     }
 
     public void saveItem(Item item) {
+        if(itemRepository.count() >= (long) LimitConfig.ITEM_LIMIT) throw new ItemLimitException();
         itemRepository.save(item);
     }
 
