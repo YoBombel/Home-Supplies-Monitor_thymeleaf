@@ -51,17 +51,17 @@ public class FileParser {
         return itemList;
     }
 
-    @PostConstruct
-    public void fillDB() throws FileNotFoundException {
-
-        List<File> fileList = listPathsToFiles();
-
-        for (File file : fileList
-        ) {
-            parseItemListFromFile(file)
-                    .forEach(itemService::saveItem);
-        }
-    }
+//    @PostConstruct
+//    public void fillDB() throws FileNotFoundException {
+//
+//        List<File> fileList = listPathsToFiles();
+//
+//        for (File file : fileList
+//        ) {
+//            parseItemListFromFile(file)
+//                    .forEach(itemService::saveItem);
+//        }
+//    }
 
     private List<File> listPathsToFiles() {
 
