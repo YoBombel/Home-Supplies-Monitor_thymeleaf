@@ -21,8 +21,9 @@
     </div>
 
     <!--ADD NEW ITEM-->
-    <form th:object="${item}" method="post">
+    <form th:object="${item}" th:method="post" th:action="@{/}">
 
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
         <input type="text" th:name="name" class="form-control" placeholder="Item name" aria-label="Item name">
 
         <div class="row">

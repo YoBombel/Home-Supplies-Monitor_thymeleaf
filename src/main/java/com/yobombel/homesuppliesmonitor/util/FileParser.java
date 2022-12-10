@@ -7,7 +7,6 @@ import com.yobombel.homesuppliesmonitor.service.ItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;

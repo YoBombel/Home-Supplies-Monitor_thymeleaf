@@ -24,7 +24,7 @@ public class MainController {
         return "index";
     }
 
-    @PostMapping("")
+    @PostMapping("/")
     public String addItem(@ModelAttribute Item newItem, Model model) {
         itemService.saveItem(newItem);
         return "redirect:/";

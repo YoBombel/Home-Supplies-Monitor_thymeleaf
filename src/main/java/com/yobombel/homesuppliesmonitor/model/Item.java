@@ -2,9 +2,9 @@ package com.yobombel.homesuppliesmonitor.model;
 
 import com.yobombel.homesuppliesmonitor.model.enums.Amount;
 import com.yobombel.homesuppliesmonitor.model.enums.Category;
+import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.*;
-
-import javax.persistence.*;
 
 @Data
 @Entity

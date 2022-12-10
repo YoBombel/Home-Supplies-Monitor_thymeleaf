@@ -2,10 +2,12 @@ package com.yobombel.homesuppliesmonitor.repository;
 
 import com.yobombel.homesuppliesmonitor.model.Item;
 import com.yobombel.homesuppliesmonitor.model.enums.Category;
+import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import javax.transaction.Transactional;
+
+
 import java.util.List;
 import java.util.Optional;
 
