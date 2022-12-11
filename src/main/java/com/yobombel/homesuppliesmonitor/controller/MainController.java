@@ -42,4 +42,10 @@ public class MainController {
         return "redirect:/";
     }
 
+    @GetMapping("/shopping_list")
+    public String shoppingList(Model model){
+        model.addAttribute("shoppingList", itemService.getLowSupplies());
+        return "shopping_list";
+    }
+
 }

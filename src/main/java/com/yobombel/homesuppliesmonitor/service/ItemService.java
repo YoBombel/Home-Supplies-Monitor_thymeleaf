@@ -51,5 +51,10 @@ public class ItemService {
         itemRepository.deleteItemByNameIgnoreCase(name);
     }
 
+    public List<Item> getLowSupplies(){
+        return findAll()
+                .stream()
+                .filter(i -> i.getAmount().compareTo(Amount.LOW) <= 0).toList();
+    }
 
 }
