@@ -13,28 +13,16 @@
 <body class="mx-auto">
 <div class="container fs-4">
 
-    <!-- LOGO -->
-    <div class="d-flex justify-content-center">
-        <div class="py-3 px-4 my-3 bg-info text-white rounded-2 flex-column">
-            <h1>Home Supplies Monitor</h1>
-        </div>
-    </div>
+    <!-- HEADER -->
+    <div th:insert="~{fragments/header}"></div>
 
     <!--ADD NEW ITEM-->
     <form th:object="${item}" th:method="post" th:action="@{/}">
 
-        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
         <input type="text" th:name="name" class="form-control" placeholder="Item name" aria-label="Item name">
 
         <div class="row">
-            <div class="col-md-6 w-50">
-                <label for="new-item-name"></label>
-                <select id="new-item-name" name="amount"
-                        class="form-select form-select-sm form-select-custom my-2 py-2">
-                    <option th:each="amount : ${T(com.yobombel.homesuppliesmonitor.model.enums.Amount).values()}"
-                            th:value="${amount}" th:text="${amount.getValue}"></option>
-                </select>
-            </div>
             <div class="col-md-6 w-50">
                 <label for="new-item-category"></label>
                 <select id="new-item-category" name="category"
@@ -44,15 +32,24 @@
                             th:label="${category.getValue}"></option>
                 </select>
             </div>
+            <div class="col-md-6 w-50">
+                <label for="new-item-name"></label>
+                <select id="new-item-name" name="amount"
+                        class="form-select form-select-sm form-select-custom my-2 py-2">
+                    <option th:each="amount : ${T(com.yobombel.homesuppliesmonitor.model.enums.Amount).values()}"
+                            th:value="${amount}" th:text="${amount.getValue}"></option>
+                </select>
+            </div>
         </div>
         <button type="submit" class="btn btn-success">Add item</button>
     </form>
 
+
     <!--CATEGORIES LIST-->
     <div class="row my-2">
-        <div class="col-md-4">
-            <h3 class="text-center">Food</h3>
-            <div th:each="item : ${allItemList}" th:if="${(item.getCategory().getValue() == 'Food')}"
+        <div class="col-md-4" th:each="category : ${T(com.yobombel.homesuppliesmonitor.model.enums.Category).values()}">
+            <h3 class="text-center text-lowercase capitalize-first" th:text="${category}"></h3>
+            <div th:each="item : ${allItemList}" th:if="${item.getCategory()} == ${category}"
                  class="border border-info rounded p-2 mb-2 text-truncate">
                 <span th:text="${item.name}"
                       data-bs-toggle="tooltip" data-bs-placement="top"
@@ -82,75 +79,11 @@
                 </div>
             </div>
         </div>
-
-        <div class="col-md-4">
-            <h3 class="text-center">Cleaning</h3>
-            <div th:each="item : ${allItemList}" th:if="${(item.getCategory().getValue() == 'Cleaning')}"
-                 class="border border-info rounded p-2 mb-2 text-truncate">
-                <span th:text="${item.name}"
-                      data-bs-toggle="tooltip" data-bs-placement="top"
-                      data-bs-custom-class="custom-tooltip"
-                      th:data-bs-title="${item.name}">
-                </span>
-                <div class="d-flex flex-row justify-content-between">
-                    <form th:object="${item}" th:action="updateAmount" method="post"
-                          th:name="${item.name}" class="">
-                        <input type="hidden" th:name="name" th:value="${item.name}">
-                        <div class="">
-                            <label th:for="amount_id"></label>
-                            <select th:id="item_amount_id" th:name="amount" th:onchange="this.form.submit()"
-                                    class="form-select form-select-sm form-select-custom">
-                                <option th:value="${item.amount.getValue}" th:text="${item.amount.getValue}" selected
-                                        disabled
-                                        hidden></option>
-                                <option th:each="amount : ${T(com.yobombel.homesuppliesmonitor.model.enums.Amount).values()}"
-                                        th:text="${amount.getValue}"></option>
-                            </select>
-                        </div>
-                    </form>
-                    <form th:object="${item}" th:action="delete" method="post" class="">
-                        <input type="hidden" th:name="name" th:value="${item.name}">
-                        <button type="submit" class="btn btn-sm btn-outline-danger">Del</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <h3 class="text-center">Misc</h3>
-            <div th:each="item : ${allItemList}" th:if="${(item.getCategory().getValue() == 'Miscellaneous')}"
-                 class="border border-info rounded p-2 mb-2 text-truncate">
-                <span th:text="${item.name}"
-                      data-bs-toggle="tooltip" data-bs-placement="top"
-                      data-bs-custom-class="custom-tooltip"
-                      th:data-bs-title="${item.name}">
-                </span>
-                <div class="d-flex flex-row justify-content-between">
-                    <form th:object="${item}" th:action="updateAmount" method="post"
-                          th:name="${item.name}" class="">
-                        <input type="hidden" th:name="name" th:value="${item.name}">
-                        <div class="">
-                            <label th:for="amount_id"></label>
-                            <select th:id="item_amount_id" th:name="amount" th:onchange="this.form.submit()"
-                                    class="form-select form-select-sm form-select-custom">
-                                <option th:value="${item.amount.getValue}" th:text="${item.amount.getValue}" selected
-                                        disabled
-                                        hidden></option>
-                                <option th:each="amount : ${T(com.yobombel.homesuppliesmonitor.model.enums.Amount).values()}"
-                                        th:text="${amount.getValue}"></option>
-                            </select>
-                        </div>
-                    </form>
-                    <form th:object="${item}" th:action="delete" method="post" class="">
-                        <input type="hidden" th:name="name" th:value="${item.name}">
-                        <button type="submit" class="btn btn-sm btn-outline-danger">Del</button>
-                    </form>
-                </div>
-            </div>
-
-        </div>
     </div>
+
 </div>
+
+<div class="px-3" th:insert="~{fragments/footer}"></div>
 
 <button type="button"
         class="btn btn-outline-info"

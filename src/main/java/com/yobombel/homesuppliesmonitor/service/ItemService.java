@@ -11,6 +11,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -52,9 +54,11 @@ public class ItemService {
     }
 
     public List<Item> getLowSupplies(){
-        return findAll()
+        return new java.util.ArrayList<>(findAll()
                 .stream()
-                .filter(i -> i.getAmount().compareTo(Amount.LOW) <= 0).toList();
+                .filter(i -> i.getAmount().compareTo(Amount.LOW) <= 0)
+                .sorted()
+                .toList());
     }
 
 }

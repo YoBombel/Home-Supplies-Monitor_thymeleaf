@@ -11,7 +11,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "item")
-public class Item {
+public class Item implements Comparable<Item>{
 
     @Id
     @NonNull
@@ -26,4 +26,8 @@ public class Item {
     @Column(name = "amount")
     private Amount amount;
 
+    @Override
+    public int compareTo(Item item) {
+        return this.getName().compareTo(item.getName());
+    }
 }
