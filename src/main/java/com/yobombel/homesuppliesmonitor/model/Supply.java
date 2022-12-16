@@ -10,20 +10,23 @@ import lombok.*;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "supply")
+@Table(name = Supply.TABLE_NAME)
 public class Supply implements Comparable<Supply>{
+
+    public static final String TABLE_NAME = "supply";
+    public static final String COLUMN_PREFIX = "s_";
 
     @Id
     @NonNull
-    @Column(name = "name", nullable = false)
+    @Column(name = COLUMN_PREFIX + "name", nullable = false)
     private String name;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "category")
+    @Column(name = COLUMN_PREFIX + "category")
     private Category category;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "amount")
+    @Column(name = COLUMN_PREFIX + "amount")
     private Amount amount;
 
     @Override

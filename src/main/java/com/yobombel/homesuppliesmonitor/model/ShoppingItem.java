@@ -13,15 +13,18 @@ import lombok.NonNull;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "shopping_item")
+@Table(name = ShoppingItem.TABLE_NAME)
 public class ShoppingItem implements Comparable<ShoppingItem> {
+
+    public static final String TABLE_NAME = "shopping_item";
+    public static final String COLUMN_PREFIX = "si_";
 
     @Id
     @NonNull
-    @Column(name = "name", nullable = false)
+    @Column(name = COLUMN_PREFIX + "name", nullable = false)
     private String name;
 
-    @Column(name = "category")
+    @Column(name = COLUMN_PREFIX + "notes")
     private String notes;
 
     @Override
