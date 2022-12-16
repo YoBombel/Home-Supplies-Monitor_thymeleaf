@@ -1,7 +1,7 @@
 package com.yobombel.homesuppliesmonitor.util;
 
 import com.yobombel.homesuppliesmonitor.api.ItemAPI;
-import com.yobombel.homesuppliesmonitor.model.Item;
+import com.yobombel.homesuppliesmonitor.model.Supply;
 import com.yobombel.homesuppliesmonitor.model.enums.Category;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.Link;
@@ -16,11 +16,11 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @Component
-public class CategoryModelAssembler implements RepresentationModelAssembler<Item, EntityModel<Item>> {
+public class CategoryModelAssembler implements RepresentationModelAssembler<Supply, EntityModel<Supply>> {
 
     @Override
-    public EntityModel<Item> toModel(Item item) {
-        return EntityModel.of(item);
+    public EntityModel<Supply> toModel(Supply supply) {
+        return EntityModel.of(supply);
     }
 
     public List<Link> getCategoryLinks() {

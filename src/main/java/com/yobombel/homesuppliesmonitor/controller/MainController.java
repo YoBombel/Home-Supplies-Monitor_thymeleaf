@@ -1,8 +1,8 @@
 package com.yobombel.homesuppliesmonitor.controller;
 
-import com.yobombel.homesuppliesmonitor.model.Item;
+import com.yobombel.homesuppliesmonitor.model.Supply;
 import com.yobombel.homesuppliesmonitor.model.enums.Amount;
-import com.yobombel.homesuppliesmonitor.service.ItemService;
+import com.yobombel.homesuppliesmonitor.service.SupplyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,36 +15,36 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequiredArgsConstructor
 public class MainController {
 
-    private final ItemService itemService;
+    private final SupplyService supplyService;
 
 
     @GetMapping("/")
     public String allItems(Model model) {
-        model.addAttribute("allItemList", itemService.findAll());
+        model.addAttribute("allItemList", supplyService.findAll());
         return "index";
     }
 
     @PostMapping("/")
-    public String addItem(@ModelAttribute Item newItem, Model model) {
-        itemService.saveItem(newItem);
+    public String addItem(@ModelAttribute Supply newSupply, Model model) {
+        supplyService.saveItem(newSupply);
         return "redirect:/";
     }
 
     @PostMapping("/updateAmount")
     public String changeAmount(@RequestParam String name, @RequestParam String amount, Model model) {
-        itemService.updateAmount(name, Amount.valueOf(amount.toUpperCase()));
+        supplyService.updateAmount(name, Amount.valueOf(amount.toUpperCase()));
         return "redirect:/";
     }
 
     @PostMapping("/delete")
     public String delete(@RequestParam String name) {
-        itemService.deleteByName(name);
+        supplyService.deleteByName(name);
         return "redirect:/";
     }
 
     @GetMapping("/shopping_list")
     public String shoppingList(Model model){
-        model.addAttribute("shoppingList", itemService.getLowSupplies());
+        model.addAttribute("shoppingList", supplyService.getLowSupplies());
         return "shopping_list";
     }
 

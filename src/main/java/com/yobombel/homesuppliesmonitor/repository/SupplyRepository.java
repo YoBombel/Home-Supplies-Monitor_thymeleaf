@@ -1,6 +1,6 @@
 package com.yobombel.homesuppliesmonitor.repository;
 
-import com.yobombel.homesuppliesmonitor.model.Item;
+import com.yobombel.homesuppliesmonitor.model.Supply;
 import com.yobombel.homesuppliesmonitor.model.enums.Category;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -12,10 +12,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface ItemRepository extends JpaRepository<Item, String> {
+public interface SupplyRepository extends JpaRepository<Supply, String> {
 
-    Optional<Item> findByNameIgnoreCaseOrderByNameAsc(String name);
-    List<Item> findByCategoryOrderByNameDesc(Category category);
+    Optional<Supply> findByNameIgnoreCaseOrderByNameAsc(String name);
+    List<Supply> findByCategoryOrderByNameDesc(Category category);
     @Transactional
     void deleteItemByNameIgnoreCase(String name);
 

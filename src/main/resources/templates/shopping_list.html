@@ -21,22 +21,22 @@
         <div class="col-md-4">
             <h3>Food:</h3>
             <ol>
-                <li th:each="item : ${shoppingList}" th:if="${(item.getCategory().getValue() == 'Food')}"
-                    th:text="${item.name}"></li>
+                <li th:each="supply : ${shoppingList}" th:if="${(supply.getCategory().getValue() == 'Food')}"
+                    th:text="${supply.name}"></li>
             </ol>
         </div>
         <div class="col-md-4">
             <h3>Cleaning:</h3>
             <ol>
-                <li th:each="item : ${shoppingList}" th:if="${(item.getCategory().getValue() == 'Cleaning')}"
-                    th:text="${item.name}"></li>
+                <li th:each="supply : ${shoppingList}" th:if="${(supply.getCategory().getValue() == 'Cleaning')}"
+                    th:text="${supply.name}"></li>
             </ol>
         </div>
         <div class="col-md-4">
             <h3>Other:</h3>
             <ol>
-                <li th:each="item : ${shoppingList}" th:if="${(item.getCategory().getValue() == 'Other')}"
-                    th:text="${item.name}"></li>
+                <li th:each="supply : ${shoppingList}" th:if="${(supply.getCategory().getValue() == 'Other')}"
+                    th:text="${supply.name}"></li>
             </ol>
         </div>
     </div>

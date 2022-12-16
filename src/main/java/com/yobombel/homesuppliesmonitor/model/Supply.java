@@ -10,8 +10,8 @@ import lombok.*;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "item")
-public class Item implements Comparable<Item>{
+@Table(name = "supply")
+public class Supply implements Comparable<Supply>{
 
     @Id
     @NonNull
@@ -27,7 +27,7 @@ public class Item implements Comparable<Item>{
     private Amount amount;
 
     @Override
-    public int compareTo(Item item) {
-        return this.getName().compareTo(item.getName());
+    public int compareTo(Supply supply) {
+        return this.getName().compareTo(supply.getName());
     }
 }
