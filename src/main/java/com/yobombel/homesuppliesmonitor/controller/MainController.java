@@ -3,11 +3,13 @@ package com.yobombel.homesuppliesmonitor.controller;
 import com.yobombel.homesuppliesmonitor.model.Supply;
 import com.yobombel.homesuppliesmonitor.model.enums.Amount;
 import com.yobombel.homesuppliesmonitor.service.SupplyService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +22,9 @@ public class MainController {
     private final SupplyService supplyService;
     private static final Logger LOGGER = LogManager.getLogger(MainController.class);
 
+    @ModelAttribute(name = "supply")
+    public Supply newSupply(){ return new Supply();}
+
     @GetMapping("/")
     public String allItems(Model model) {
         model.addAttribute("allItemList", supplyService.findAll());
@@ -28,10 +33,16 @@ public class MainController {
     }
 
     @PostMapping("/")
-    public String addItem(@ModelAttribute Supply newSupply, Model model) {
+    public String addItem(@Valid Supply supply, BindingResult bindingResult, Model model) {
         LOGGER.info("User tries to add new item.");
-        supplyService.saveItem(newSupply);
-        LOGGER.info("User added new item: " + newSupply);
+        if (bindingResult.hasErrors()) {
+            LOGGER.info("Item add failed - incorrectly filled form.");
+            LOGGER.info(bindingResult.getFieldError("name"));
+            model.addAttribute("allItemList", supplyService.findAll());
+            return "index";
+        }
+        supplyService.saveItem(supply);
+        LOGGER.info("User added new item: " + supply);
         return "redirect:/";
     }
 

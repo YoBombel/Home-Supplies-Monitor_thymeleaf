@@ -4,6 +4,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,7 +22,7 @@ public class ShoppingItem implements Comparable<ShoppingItem> {
     public static final String COLUMN_PREFIX = "si_";
 
     @Id
-    @NonNull
+    @Size(min = 1, max = 20, message = "Name must be 1-20 characters long.")
     @Column(name = COLUMN_PREFIX + "name", nullable = false)
     private String name;
 

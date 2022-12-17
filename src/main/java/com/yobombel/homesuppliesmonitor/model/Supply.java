@@ -4,6 +4,8 @@ import com.yobombel.homesuppliesmonitor.model.enums.Amount;
 import com.yobombel.homesuppliesmonitor.model.enums.Category;
 import jakarta.persistence.Entity;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 
 @Data
@@ -17,7 +19,7 @@ public class Supply implements Comparable<Supply>{
     public static final String COLUMN_PREFIX = "s_";
 
     @Id
-    @NonNull
+    @Size(min = 1, max = 20, message = "Name must be 1-20 characters long.")
     @Column(name = COLUMN_PREFIX + "name", nullable = false)
     private String name;
 
