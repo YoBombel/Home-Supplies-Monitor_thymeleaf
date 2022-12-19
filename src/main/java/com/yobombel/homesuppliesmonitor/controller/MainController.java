@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class MainController {
 
     private final SupplyService supplyService;
-    private static final Logger LOGGER = LogManager.getLogger(MainController.class);
+    private static final Logger log = LogManager.getLogger(MainController.class);
 
     @ModelAttribute(name = "supply")
     public Supply newSupply(){ return new Supply();}
@@ -28,41 +28,41 @@ public class MainController {
     @GetMapping("/")
     public String allItems(Model model) {
         model.addAttribute("allItemList", supplyService.findAll());
-        LOGGER.info("Received request for main page.");
+        log.debug("Received request for main page.");
         return "index";
     }
 
     @PostMapping("/")
     public String addItem(@Valid Supply supply, BindingResult bindingResult, Model model) {
-        LOGGER.info("User tries to add new item.");
+        log.info("User tries to add new item.");
         if (bindingResult.hasErrors()) {
-            LOGGER.info("Item add failed - incorrectly filled form.");
-            LOGGER.info(bindingResult.getFieldError("name"));
+            log.info("Item add failed - incorrectly filled form.");
+            log.debug(bindingResult.getFieldError("name"));
             model.addAttribute("allItemList", supplyService.findAll());
             return "index";
         }
         supplyService.saveItem(supply);
-        LOGGER.info("User added new item: " + supply);
+        log.info("User added new item: " + supply);
         return "redirect:/";
     }
 
     @PostMapping("/updateAmount")
     public String changeAmount(@RequestParam String name, @RequestParam String amount, Model model) {
         supplyService.updateAmount(name, Amount.valueOf(amount.toUpperCase()));
-        LOGGER.info("User updated amount of " + name + " to: " + amount);
+        log.info("User updated amount of " + name + " to: " + amount);
         return "redirect:/";
     }
 
     @PostMapping("/delete")
     public String delete(@RequestParam String name) {
         supplyService.deleteByName(name);
-        LOGGER.info("User deleted item " + name);
+        log.info("User deleted item " + name);
         return "redirect:/";
     }
 
     @GetMapping("/shopping_list")
     public String shoppingList(Model model) {
-        LOGGER.info("Received request for shopping list.");
+        log.info("Received request for shopping list.");
         model.addAttribute("shoppingList", supplyService.getLowSupplies());
         return "shopping_list";
     }
