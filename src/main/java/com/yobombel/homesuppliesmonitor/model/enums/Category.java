@@ -9,7 +9,7 @@ public enum Category {
 
     FOOD("Food"),
     CLEANING("Cleaning"),
-    MISC("Miscellaneous");
+    OTHER("Other");
 
     private final String value;
 

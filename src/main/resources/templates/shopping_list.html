@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" sizes="180x180" th:href="@{/img/favicon/apple-touch-icon.png}">
+    <link rel="icon" type="image/png" sizes="32x32" th:href="@{/img/favicon/favicon-32x32.png}">
+    <link rel="icon" type="image/png" sizes="16x16" th:href="@{/img/favicon/favicon-16x16.png}">
+    <link rel="manifest" th:href="@{/site.webmanifest}">
+
+    <title>Home Supplies Monitor</title>
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet"/>
+    <link th:href="@{/css/styles.css}" rel="stylesheet"/>
+</head>
+
+<body class="mx-auto">
+<div class="container fs-4">
+
+    <!-- HEADER -->
+    <div th:insert="~{fragments/header}"></div>
+
+    <!--CATEGORIES LIST-->
+    <div class="row my-2">
+        <div class="col-md-4">
+            <h3>Food:</h3>
+            <ol>
+                <li th:each="supply : ${shoppingList}" th:if="${(supply.getCategory().getValue() == 'Food')}"
+                    th:text="${supply.name}"></li>
+            </ol>
+        </div>
+        <div class="col-md-4">
+            <h3>Cleaning:</h3>
+            <ol>
+                <li th:each="supply : ${shoppingList}" th:if="${(supply.getCategory().getValue() == 'Cleaning')}"
+                    th:text="${supply.name}"></li>
+            </ol>
+        </div>
+        <div class="col-md-4">
+            <h3>Other:</h3>
+            <ol>
+                <li th:each="supply : ${shoppingList}" th:if="${(supply.getCategory().getValue() == 'Other')}"
+                    th:text="${supply.name}"></li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div th:insert="~{fragments/footer}"></div>
+
+<button type="button"
+        class="btn btn-outline-info"
+        id="btn-back-to-top">
+    <img th:src="@{/img/arrow-up.svg}" width="100%" alt="back-to-top">
+</button>
+
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/js/scripts.js}"></script>
+
+</body>
+</html>

@@ -2,12 +2,11 @@ package com.yobombel.homesuppliesmonitor.util;
 
 import com.yobombel.homesuppliesmonitor.model.enums.Amount;
 import com.yobombel.homesuppliesmonitor.model.enums.Category;
-import com.yobombel.homesuppliesmonitor.model.Item;
-import com.yobombel.homesuppliesmonitor.service.ItemService;
+import com.yobombel.homesuppliesmonitor.model.Supply;
+import com.yobombel.homesuppliesmonitor.service.SupplyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -24,44 +23,44 @@ import java.util.stream.Stream;
 @RequiredArgsConstructor
 public class FileParser {
 
-    private final ItemService itemService;
+    private final SupplyService supplyService;
 
-    public List<Item> parseItemListFromFile(File file) throws FileNotFoundException {
+    public List<Supply> parseItemListFromFile(File file) throws FileNotFoundException {
 
         Scanner scanner = new Scanner(file);
 
         String fileToCategory = file.getName().toUpperCase(Locale.ROOT);
         Category category = Category.valueOf(fileToCategory);
 
-        List<Item> itemList = new ArrayList<>();
+        List<Supply> supplyList = new ArrayList<>();
 
         while (scanner.hasNextLine()) {
 
             String name = scanner.nextLine();
 
             if(!name.isBlank()) {
-                Item item = new Item();
-                item.setName(name.trim());
-                item.setAmount(Amount.NONE);
-                item.setCategory(category);
-                itemList.add(item);
+                Supply supply = new Supply();
+                supply.setName(name.trim());
+                supply.setAmount(Amount.NONE);
+                supply.setCategory(category);
+                supplyList.add(supply);
             }
         }
 
-        return itemList;
+        return supplyList;
     }
 
-    @PostConstruct
-    public void fillDB() throws FileNotFoundException {
-
-        List<File> fileList = listPathsToFiles();
-
-        for (File file : fileList
-        ) {
-            parseItemListFromFile(file)
-                    .forEach(itemService::saveItem);
-        }
-    }
+//    @PostConstruct
+//    public void fillDB() throws FileNotFoundException {
+//
+//        List<File> fileList = listPathsToFiles();
+//
+//        for (File file : fileList
+//        ) {
+//            parseItemListFromFile(file)
+//                    .forEach(itemService::saveItem);
+//        }
+//    }
 
     private List<File> listPathsToFiles() {
 

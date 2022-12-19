@@ -1,6 +1,4 @@
-MVP:
-    Thymeleaf apka do dokumentowania domowych zapasów z dynamicznym generowaniem listy
-    zakupów.
+Basic unit tests.
 
 BACK:
     Generate shopping list
@@ -16,7 +14,11 @@ Responsy błędów:
     GetByCategory response
 testy
 logi
-Nazwę item zmienić na supplies?
+Nazwę supply zmienić na supplies?
 Sort rest links
 Remove REST
 Message for database connection error.
+
+MVP:
+    Thymeleaf apka do dokumentowania domowych zapasów z dynamicznym generowaniem listy
+    zakupów.

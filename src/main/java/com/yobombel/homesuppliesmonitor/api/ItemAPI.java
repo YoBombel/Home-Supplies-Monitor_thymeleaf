@@ -1,36 +1,30 @@
 package com.yobombel.homesuppliesmonitor.api;
 
-import com.yobombel.homesuppliesmonitor.model.Item;
-import com.yobombel.homesuppliesmonitor.model.enums.Category;
-import com.yobombel.homesuppliesmonitor.service.ItemService;
+import com.yobombel.homesuppliesmonitor.model.Supply;
+import com.yobombel.homesuppliesmonitor.service.SupplyService;
 import com.yobombel.homesuppliesmonitor.util.CategoryModelAssembler;
 import lombok.RequiredArgsConstructor;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.EnumSet;
 import java.util.List;
-import java.util.Locale;
 import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/item")
 public class ItemAPI {
 
-    private final ItemService itemService;
+    private final SupplyService supplyService;
     private final CategoryModelAssembler assembler;
 
     @GetMapping("all")
-    public CollectionModel<EntityModel<Item>> all() {
+    public CollectionModel<EntityModel<Supply>> all() {
 
-        List<EntityModel<Item>> supplies = itemService.findAll().stream()
+        List<EntityModel<Supply>> supplies = supplyService.findAll().stream()
                 .map(assembler::toModel)
                 .toList();
 
@@ -38,19 +32,19 @@ public class ItemAPI {
     }
 
     @GetMapping("{name}")
-    public Optional<Item> getItemByName(@PathVariable String name) {
-        return itemService.findByName(name);
+    public Optional<Supply> getItemByName(@PathVariable String name) {
+        return supplyService.findByName(name);
     }
 
     @PostMapping("")
-    public void addItem(@RequestBody Item item) {
-        itemService.saveItem(item);
+    public void addItem(@RequestBody Supply supply) {
+        supplyService.saveItem(supply);
     }
 
     @GetMapping("/category/{category}")
-    public CollectionModel<EntityModel<Item>> getCategory(@PathVariable String category) {
+    public CollectionModel<EntityModel<Supply>> getCategory(@PathVariable String category) {
 
-        List<EntityModel<Item>> supplies = itemService.findByCategory(category).stream()
+        List<EntityModel<Supply>> supplies = supplyService.findByCategory(category).stream()
                 .map(EntityModel::of)
                 .toList();
         return CollectionModel.of(supplies, assembler.getCategoryLinks());
