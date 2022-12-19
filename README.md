@@ -100,7 +100,7 @@ Build and run the app using Docker Compose:
 docker-compose up -d
   ```
 
-The app should now be running at http://localhost:8080.
+The app should now be running at http://localhost:8081.
 
 ### Stopping the App
 
@@ -190,10 +190,3 @@ Link: [https://github.com/BienkowskiTomasz/Home-Supplies-Monitor](https://github
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 
 [Bootstrap-url]: https://getbootstrap.com
-
-### DOCKER
-
-Commands to build and run a docker container:
-
-    docker build --platform linux/amd64 -tHome-Supplies-Monitor .
-    docker run -p 8080:8080Home-Supplies-Monitor
