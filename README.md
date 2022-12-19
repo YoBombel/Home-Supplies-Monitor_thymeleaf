@@ -102,6 +102,10 @@ docker-compose up -d
 
 The app should now be running at http://localhost:8081.
 
+To login:
+user
+password
+
 ### Stopping the App
 
 You can stop the app by running the following command in the project directory:
