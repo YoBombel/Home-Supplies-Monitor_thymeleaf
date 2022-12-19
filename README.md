@@ -114,6 +114,9 @@ docker-compose down
 
 ## Screenshots
 
+<img src="screenshot1.png" alt="App screenshot" width="812" height="856" />
+<img src="screenshot2.png" alt="App screenshot" width="832" height="476" />
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
