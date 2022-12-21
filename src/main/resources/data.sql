@@ -1,19 +1,15 @@
 USE hms_db;
-INSERT IGNORE INTO supply (s_name, s_category, s_amount) values ('Banany', 'FOOD', 'NONE');
-INSERT IGNORE INTO supply (s_name, s_category, s_amount) values ('Jabłka', 'FOOD', 'NONE');
-INSERT IGNORE INTO supply (s_name, s_category, s_amount) values ('Cebula', 'FOOD', 'NONE');
-INSERT IGNORE INTO supply (s_name, s_category, s_amount) values ('Frytki', 'FOOD', 'NONE');
-INSERT IGNORE INTO supply (s_name, s_category, s_amount) values ('Ketchup', 'FOOD', 'NONE');
-INSERT IGNORE INTO supply (s_name, s_category, s_amount) values ('Harissa', 'FOOD', 'NONE');
+INSERT IGNORE INTO supply (s_name, s_category, s_amount) values ('Bananas', 'FOOD', 'LOW');
+INSERT IGNORE INTO supply (s_name, s_category, s_amount) values ('Apples', 'FOOD', 'NONE');
+INSERT IGNORE INTO supply (s_name, s_category, s_amount) values ('Onions', 'FOOD', 'ENOUGH');
+INSERT IGNORE INTO supply (s_name, s_category, s_amount) values ('Ketchup', 'FOOD', 'MAX');
+INSERT IGNORE INTO supply (s_name, s_category, s_amount) values ('Harissa', 'FOOD', 'ENOUGH');
 
-INSERT IGNORE INTO supply (s_name, s_category, s_amount) values ('Mydło', 'CLEANING', 'NONE');
-INSERT IGNORE INTO supply (s_name, s_category, s_amount) values ('Szampon', 'CLEANING', 'NONE');
-INSERT IGNORE INTO supply (s_name, s_category, s_amount) values ('Pasta do zębów', 'CLEANING', 'NONE');
-INSERT IGNORE INTO supply (s_name, s_category, s_amount) values ('Pianka do golenia', 'CLEANING', 'NONE');
-INSERT IGNORE INTO supply (s_name, s_category, s_amount) values ('Krem po goleniu', 'CLEANING', 'NONE');
+INSERT IGNORE INTO supply (s_name, s_category, s_amount) values ('Soap', 'CLEANING', 'ENOUGH');
+INSERT IGNORE INTO supply (s_name, s_category, s_amount) values ('Shampoo', 'CLEANING', 'LOW');
+INSERT IGNORE INTO supply (s_name, s_category, s_amount) values ('Toothpaste', 'CLEANING', 'LOW');
 
-INSERT IGNORE INTO supply (s_name, s_category, s_amount) values ('Worki na śmieci duże', 'OTHER', 'NONE');
-INSERT IGNORE INTO supply (s_name, s_category, s_amount) values ('Worki na śmieci małe', 'OTHER', 'NONE');
-INSERT IGNORE INTO supply (s_name, s_category, s_amount) values ('Folia spożywcza', 'OTHER', 'NONE');
-INSERT IGNORE INTO supply (s_name, s_category, s_amount) values ('Papier do pieczenia', 'OTHER', 'NONE');
-INSERT IGNORE INTO supply (s_name, s_category, s_amount) values ('Folia aluminiowa', 'OTHER', 'NONE');
+INSERT IGNORE INTO supply (s_name, s_category, s_amount) values ('Garbage bags-big', 'OTHER', 'LOW');
+INSERT IGNORE INTO supply (s_name, s_category, s_amount) values ('Garbage bags-small', 'OTHER', 'ENOUGH');
+INSERT IGNORE INTO supply (s_name, s_category, s_amount) values ('Food wrap', 'OTHER', 'LOW');
+INSERT IGNORE INTO supply (s_name, s_category, s_amount) values ('Baking paper', 'OTHER', 'ENOUGH');

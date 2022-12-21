@@ -33,7 +33,6 @@ their household essentials."
     </li>
     <li><a href="#screenshots">Usage</a></li>
     <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
 
@@ -66,13 +65,10 @@ household needs.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 <!-- GETTING STARTED -->
 
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
@@ -100,7 +96,11 @@ Build and run the app using Docker Compose:
 docker-compose up -d
   ```
 
-The app should now be running at http://localhost:8080.
+The app should now be running at http://localhost:8081.
+
+To login:
+user
+password
 
 ### Stopping the App
 
@@ -114,6 +114,9 @@ docker-compose down
 
 ## Screenshots
 
+<img src="screenshot1.png" alt="App screenshot" width="812" height="856" />
+<img src="screenshot2.png" alt="App screenshot" width="812" height="476" />
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -121,17 +124,9 @@ docker-compose down
 
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+Distributed under the GNU GPLv3  License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- CONTACT -->
-
-## Contact
-
-Tomasz Bieńkowski - it.bienkowski@gmail.com
 
 Project
 Link: [https://github.com/BienkowskiTomasz/Home-Supplies-Monitor](https://github.com/BienkowskiTomasz/Home-Supplies-Monitor)
@@ -142,58 +137,27 @@ Link: [https://github.com/BienkowskiTomasz/Home-Supplies-Monitor](https://github
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
 [contributors-shield]: https://img.shields.io/github/contributors/BienkowskiTomasz/Home-Supplies-Monitor.svg?style=for-the-badge
-
 [contributors-url]: https://github.com/BienkowskiTomasz/Home-Supplies-Monitor/graphs/contributors
-
 [forks-shield]: https://img.shields.io/github/forks/BienkowskiTomasz/Home-Supplies-Monitor.svg?style=for-the-badge
-
 [forks-url]: https://github.com/BienkowskiTomasz/Home-Supplies-Monitor/network/members
-
 [stars-shield]: https://img.shields.io/github/stars/BienkowskiTomasz/Home-Supplies-Monitor.svg?style=for-the-badge
-
 [stars-url]: https://github.com/BienkowskiTomasz/Home-Supplies-Monitor/stargazers
-
 [issues-shield]: https://img.shields.io/github/issues/BienkowskiTomasz/Home-Supplies-Monitor.svg?style=for-the-badge
-
 [issues-url]: https://github.com/BienkowskiTomasz/Home-Supplies-Monitor/issues
-
 [license-shield]: https://img.shields.io/github/license/BienkowskiTomasz/Home-Supplies-Monitor.svg?style=for-the-badge
-
 [license-url]: https://github.com/BienkowskiTomasz/Home-Supplies-Monitor/blob/master/LICENSE.txt
-
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-
 [linkedin-url]: https://linkedin.com/in/linkedin_username
-
 [product-screenshot]: images/screenshot.png
-
 [Java.com]: https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white
-
 [Java-url]: https://www.java.com/
-
 [Spring.io]: https://img.shields.io/badge/spring-green?style=for-the-badge&logo=spring&logoColor=white
-
 [Spring-url]: https://spring.io/
-
 [MySQL.com]: https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white
-
 [MySQL-url]: https://www.mysql.com/
-
 [Docker.com]: https://img.shields.io/badge/Docker-0DB7ED?style=for-the-badge&logo=docker&logoColor=white
-
 [Docker-url]: https://www.docker.com/
-
 [Thymeleaf.com]: https://img.shields.io/badge/Thymeleaf-7B56C0?style=for-the-badge&logo=thymeleaf&logoColor=white
-
 [Thymeleaf-url]: https://www.thymeleaf.org/
-
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
-
 [Bootstrap-url]: https://getbootstrap.com
-
-### DOCKER
-
-Commands to build and run a docker container:
-
-    docker build --platform linux/amd64 -tHome-Supplies-Monitor .
-    docker run -p 8080:8080Home-Supplies-Monitor
