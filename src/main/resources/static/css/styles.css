@@ -53,3 +53,15 @@ label {
 .capitalize-first:first-letter{
     text-transform: uppercase !important;
 }
+
+#linkedin:hover{
+    filter: invert(73%) sepia(71%) saturate(2932%) hue-rotate(145deg) brightness(97%) contrast(94%);
+}
+
+.github:hover{
+    filter: invert(0%) sepia(0%) saturate(80%) hue-rotate(148deg) brightness(15%) contrast(104%);
+}
+
+#instagram:hover{
+    filter: invert(25%) sepia(65%) saturate(2467%) hue-rotate(317deg) brightness(97%) contrast(92%);
+}
