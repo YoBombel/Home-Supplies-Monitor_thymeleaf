@@ -28,6 +28,10 @@ label {
     display: none;
 }
 
+.btn-trash:hover{
+    background-color: #ff818d;
+}
+
 #btn-back-to-top {
     position: fixed;
     bottom: 100px;

@@ -74,6 +74,7 @@ public class SupplyService {
         log.info("Finding low supplies");
         List<Supply> lowSupplies = new java.util.ArrayList<>(findAll()
                 .stream()
+                .filter((i -> i.getAmount() != null))
                 .filter(i -> i.getAmount().compareTo(Amount.LOW) <= 0)
                 .sorted()
                 .toList());

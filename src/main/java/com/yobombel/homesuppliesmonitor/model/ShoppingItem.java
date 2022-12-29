@@ -26,6 +26,7 @@ public class ShoppingItem implements Comparable<ShoppingItem> {
     @Column(name = COLUMN_PREFIX + "name", nullable = false)
     private String name;
 
+    @Size(max = 50, message = "Notes shouldn't exceed 50 characters.")
     @Column(name = COLUMN_PREFIX + "notes")
     private String notes;
 

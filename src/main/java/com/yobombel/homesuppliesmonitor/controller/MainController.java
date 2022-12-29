@@ -60,11 +60,4 @@ public class MainController {
         return "redirect:/";
     }
 
-    @GetMapping("/shopping_list")
-    public String shoppingList(Model model) {
-        log.info("Received request for shopping list.");
-        model.addAttribute("shoppingList", supplyService.getLowSupplies());
-        return "shopping_list";
-    }
-
 }

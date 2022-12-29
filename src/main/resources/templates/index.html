@@ -30,11 +30,11 @@
                class="form-control" placeholder="Item name" aria-label="Item name">
         <p th:if="${#fields.hasErrors('name')}" th:each="err : ${#fields.errors('name')}" th:text="${err}" class="text-danger fs-6 my-0"></p>
 
-        <div class="row">
+        <div class="row my-2">
             <div class="col-md-6 w-50">
                 <label for="new-supply-category"></label>
                 <select id="new-supply-category" name="category"
-                        class="form-select form-select-sm form-select-custom my-2 py-2">
+                        class="form-select form-select-sm form-select-custom py-2">
                     <option th:each="category : ${T(com.yobombel.homesuppliesmonitor.model.enums.Category).values()}"
                             th:value="${category}" th:text="${category.getValue}"
                             th:label="${category.getValue}"></option>
@@ -43,7 +43,7 @@
             <div class="col-md-6 w-50">
                 <label for="new-supply-name"></label>
                 <select id="new-supply-name" name="amount"
-                        class="form-select form-select-sm form-select-custom my-2 py-2">
+                        class="form-select form-select-sm form-select-custom py-2">
                     <option th:each="amount : ${T(com.yobombel.homesuppliesmonitor.model.enums.Amount).values()}"
                             th:value="${amount}" th:text="${amount.getValue}"></option>
                 </select>
@@ -52,7 +52,7 @@
         <button type="submit" class="btn btn-success">Add supply</button>
     </form>
 
-
+    <hr />
     <!--CATEGORIES LIST-->
     <div class="row my-2">
         <div class="col-md-4" th:each="category : ${T(com.yobombel.homesuppliesmonitor.model.enums.Category).values()}">
@@ -82,7 +82,7 @@
                     </form>
                     <form th:object="${supply}" th:action="delete" method="post" class="">
                         <input type="hidden" th:name="name" th:value="${supply.name}">
-                        <button type="submit" class="btn btn-sm btn-outline-danger">Del</button>
+                        <button type="submit" class="btn btn-sm btn-outline-danger btn-trash"><img th:src="@{/img/trash.svg}" width="100%" alt="Delete"></button>
                     </form>
                 </div>
             </div>
